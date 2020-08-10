@@ -26,21 +26,31 @@ const Main = () => {
               <h3 className="Main_groupTitle">
                 Document Summary
               </h3>
-              <p className="Main_groupInfo">
-                {data.m_szDocSumamry}
-              </p>
+              <div className="Main_groupInfo">
+                <p className="Main_groupInfoContainer">
+                  {data.m_szDocSumamry}
+                </p>
+              </div>
             </li>
             <li className="Main_groupItem">
-              Document Details
-              <p className="Main_groupInfo">
-                {data.m_szDocBody}
-              </p>
+              <h3 className="Main_groupTitle">
+                Document Details
+              </h3>
+              <div className="Main_groupInfo">
+                <p className="Main_groupInfoContainer">
+                  {data.m_szDocBody}
+                </p>
+              </div>
             </li>
             <li className="Main_groupItem">
-              Location
-              <p className="Main_groupInfo">
-                {data.m_szGeo1}
-              </p>
+              <h3 className="Main_groupTitle">
+                Location
+              </h3>
+              <div className="Main_groupInfo">
+                <p className="Main_groupInfoContainer">
+                  {data.m_szGeo1}
+                </p>
+              </div>
             </li>
           </ul>
           <a href={data.m_szSrcUrl} className="Main_groupInfo">
