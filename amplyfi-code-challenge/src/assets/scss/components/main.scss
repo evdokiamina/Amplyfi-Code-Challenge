@@ -83,24 +83,19 @@
   }
 
   &_groupInfo {
-    max-height: 0;
+    min-height: 2.5rem;
+    max-height: 2.5rem;
     width: 0;
     margin-left: 1rem;
     color: white;
-<<<<<<< Updated upstream
-=======
-    background-color: map-get($colors, "dark-green");
->>>>>>> Stashed changes
     transition: all 0.3s cubic-bezier(0, 1, 0, 1), width 0.2s ease-in 0.2s;
     overflow: hidden;
   }
 
   &_groupInfoContainer {
     padding: 1rem;
-<<<<<<< Updated upstream
     background-color: map-get($colors, "dark-green");
-=======
->>>>>>> Stashed changes
     border-radius: 5px;
+    margin: 0;
   }
 }

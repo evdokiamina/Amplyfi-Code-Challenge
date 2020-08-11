@@ -27,45 +27,16 @@ const Main = () => {
                 <h3 className="Main_groupTitle">
                   Document Summary
               </h3>
-                <p className="Main_groupInfo">
-                  {data.m_szDocSumamry}
-                </p>
+                <div className="Main_groupInfo">
+                  <p className="Main_groupInfoContainer">
+                    {data.m_szDocSumamry}
+                  </p>
+                </div>
               </li>
               <li className="Main_groupItem">
                 <h3 className="Main_groupTitle">
                   Document Details
               </h3>
-<<<<<<< Updated upstream
-              <div className="Main_groupInfo">
-                <p className="Main_groupInfoContainer">
-                  {data.m_szDocSumamry}
-                </p>
-              </div>
-            </li>
-            <li className="Main_groupItem">
-              <h3 className="Main_groupTitle">
-                Document Details
-              </h3>
-              <div className="Main_groupInfo">
-                <p className="Main_groupInfoContainer">
-                  {data.m_szDocBody}
-                </p>
-              </div>
-            </li>
-            <li className="Main_groupItem">
-              <h3 className="Main_groupTitle">
-                Location
-              </h3>
-              <div className="Main_groupInfo">
-                <p className="Main_groupInfoContainer">
-                  {data.m_szGeo1}
-                </p>
-              </div>
-            </li>
-          </ul>
-          <a href={data.m_szSrcUrl} className="Main_groupInfo">
-            Source
-=======
                 <div className="Main_groupInfo">
                   <p className="Main_groupInfoContainer">
                     {data.m_szDocBody}
@@ -85,7 +56,6 @@ const Main = () => {
             </ul>
             <a href={data.m_szSrcUrl} className="Main_groupInfo">
               Source
->>>>>>> Stashed changes
               </a>
           </div>
         </Section>
