@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import data from '../data/JSON/232.json';
-
+import Section from './Section';
 
 const Main = () => {
   const [number, setNumber] = useState(0);
@@ -16,16 +16,26 @@ const Main = () => {
             Code Challenge
           </p>
         </div>
-        <div className="Main_group">
-          <div className="Main_groupDets">
-            Document ID:
+        <Section>
+          <div className="Main_group">
+            <div className="Main_groupDets">
+              Document ID:
             {data.m_szDocID}
-          </div>
-          <ul className="Main_groupDets">
-            <li className="Main_groupItem">
-              <h3 className="Main_groupTitle">
-                Document Summary
+            </div>
+            <ul className="Main_groupDets">
+              <li className="Main_groupItem">
+                <h3 className="Main_groupTitle">
+                  Document Summary
               </h3>
+                <p className="Main_groupInfo">
+                  {data.m_szDocSumamry}
+                </p>
+              </li>
+              <li className="Main_groupItem">
+                <h3 className="Main_groupTitle">
+                  Document Details
+              </h3>
+<<<<<<< Updated upstream
               <div className="Main_groupInfo">
                 <p className="Main_groupInfoContainer">
                   {data.m_szDocSumamry}
@@ -55,8 +65,30 @@ const Main = () => {
           </ul>
           <a href={data.m_szSrcUrl} className="Main_groupInfo">
             Source
+=======
+                <div className="Main_groupInfo">
+                  <p className="Main_groupInfoContainer">
+                    {data.m_szDocBody}
+                  </p>
+                </div>
+              </li>
+              <li className="Main_groupItem">
+                <h3 className="Main_groupTitle">
+                  Location
+              </h3>
+                <div className="Main_groupInfo">
+                  <p className="Main_groupInfoContainer">
+                    {data.m_szGeo1}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <a href={data.m_szSrcUrl} className="Main_groupInfo">
+              Source
+>>>>>>> Stashed changes
               </a>
-        </div>
+          </div>
+        </Section>
       </div>
     </div>
   );

@@ -1,0 +1,13 @@
+.Section {
+  &_container {
+    padding: 2rem 5rem;
+
+    @media (max-width: 1024px) {
+      padding: 1.5rem 3rem;
+    }
+
+    @media (max-width: 720px) {
+      padding: 1rem 2.5rem;
+    }
+  }
+}
