@@ -1,4 +1,5 @@
 import React from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Main from './components/main';
@@ -7,7 +8,9 @@ import './assets/scss/styles.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Main />
+    <ParallaxProvider>
+      <Main />
+    </ParallaxProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,0 +1,151 @@
+.ExpandCircle {
+  $root: &;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10rem;
+
+  &_container {
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+
+      #{$root}_circle {
+        &-one {
+          animation: circle-expand-one 0.9s ease-in-out forwards;
+        }
+
+        &-two {
+          animation: circle-expand-two 0.7s ease-in-out forwards;
+        }
+
+        &-three {
+          box-shadow: 0 0 10px map-get($colors, "dark-blue");
+          animation: circle-expand-three 0.5s ease-in-out forwards;
+        }
+      }
+
+      #{$root}_listItem {
+        width: 3.5rem;
+        height: 3.5rem;
+        left: var(--posX);
+        top: var(--posY);
+        transform: translate(75%, 75%);
+        transition: all 0.4s ease-in;
+      }
+    }
+  }
+
+  &_circleContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+  }
+
+  &_circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 1;
+
+    &-one {
+      background-color: rgb(73, 161, 233);
+    }
+    &-two {
+      background-color: rgb(26, 107, 173);
+    }
+    &-three {
+      background-color: map-get($colors, "dark-blue");
+    }
+  }
+
+  &_title {
+    color: map-get($colors, "white");
+    z-index: 2;
+  }
+
+  &_listContainer {
+    // animation: rotate-items 0.5s linear infinite;
+  }
+
+  &_listItem {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: map-get($colors, "dark-blue");
+    color: map-get($colors, "white");
+    white-space: pre-wrap;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in;
+    overflow: hidden;
+  }
+
+  @keyframes rotate-items {
+    0% {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes circle-expand-three {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes circle-expand-two {
+    0% {
+      box-shadow: 0 0 0 rgb(26, 107, 173);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 10px rgb(26, 107, 173);
+      transform: scale(1.5);
+    }
+    100% {
+      box-shadow: 0 0 0 rgb(26, 107, 173);
+      transform: scale(1);
+    }
+  }
+
+  @keyframes circle-expand-one {
+    0% {
+      box-shadow: 0 0 0 rgb(73, 161, 233);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 10px rgb(73, 161, 233);
+      transform: scale(1.75);
+    }
+    100% {
+      box-shadow: 0 0 0 rgb(73, 161, 233);
+      transform: scale(1);
+    }
+  }
+}

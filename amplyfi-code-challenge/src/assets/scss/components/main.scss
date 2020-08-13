@@ -1,13 +1,19 @@
 .Main {
   $root: &;
+  margin-top: 15rem;
+  overflow: hidden;
 
   &_header {
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+    top: 0;
     background-color: map-get($colors, "dark-green");
     color: white;
+    z-index: 99999;
 
     & > h1 {
       font-size: 3rem;
@@ -19,6 +25,19 @@
       font-style: italic;
       margin-top: 0;
     }
+  }
+
+  &_title {
+    margin-top: 2rem;
+    transition: margin-top 0.2s ease-in;
+
+    &-small {
+      margin-top: 0;
+    }
+  }
+
+  &_group {
+    margin-bottom: 10rem;
   }
 
   &_groupDets {
@@ -54,6 +73,12 @@
         width: 100%;
         max-height: 500px;
         transition: width 0.2s ease-in, max-height 0.3s ease-in-out 0.2s;
+      }
+    }
+
+    &:last-child {
+      div {
+        font-style: italic;
       }
     }
   }
@@ -97,5 +122,24 @@
     background-color: map-get($colors, "dark-green");
     border-radius: 5px;
     margin: 0;
+  }
+
+  &_subtitle {
+    font-size: 1rem;
+    transition: font-size 0.2s ease-in;
+
+    &-small {
+      font-size: 0px;
+    }
+  }
+
+  &_circle {
+    &-big {
+      margin-bottom: 15rem !important;
+    }
+  }
+
+  &_parallax {
+    position: absolute;
   }
 }
