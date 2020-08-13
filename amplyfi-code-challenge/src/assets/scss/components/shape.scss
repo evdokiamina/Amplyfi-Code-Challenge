@@ -1,0 +1,23 @@
+.Shape {
+  &_container {
+    width: 10rem;
+    height: 10rem;
+    border: 2px solid map-get($colors, "dark-blue");
+
+    &-left {
+      transform: skewX(45deg);
+    }
+
+    &-right {
+      transform: skewX(135deg);
+    }
+
+    &-small {
+      transform: scale(0.5);
+    }
+
+    &-big {
+      transform: scale(1.5);
+    }
+  }
+}
