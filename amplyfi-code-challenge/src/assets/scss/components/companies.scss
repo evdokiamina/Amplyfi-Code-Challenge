@@ -1,0 +1,22 @@
+.Companies {
+  margin-top: 5rem;
+
+  &_list {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  &_listItem {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+
+    &:nth-child(1n) {
+      background-color: rgb(130, 130, 231);
+    }
+
+    &:nth-child(2n) {
+      background-color: rgb(193, 193, 255);
+    }
+  }
+}
