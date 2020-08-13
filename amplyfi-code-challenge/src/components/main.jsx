@@ -29,15 +29,15 @@ const Main = ({
 
   return (
     <div className="Main">
+      <Parallax className="Main_parallax" y={[-200, 200]} x={[1000, 500]} tagOuter="figure">
+        <Shape left />
+      </Parallax>
       <div className="Main_sectionTitle" onClick={(e) => collapse(e)}>
         <h1 className="Main_docTitle">
           {data.m_szDocTitle}
         </h1>
       </div>
       <div className="Main_container" ref={section}>
-        <Parallax className="Main_parallax" y={[-200, 200]} x={[1000, 500]} tagOuter="figure">
-          <Shape left />
-        </Parallax>
         <Section blockName="Main_section">
           <div className="Main_group">
             <div className="Main_groupHeader">
@@ -107,7 +107,7 @@ const Main = ({
           }
         </Section>
       </div>
-      <Parallax className="Main_parallax" y={[-200, 20]} x={[-10, 70]} tagOuter="figure">
+      <Parallax className="Main_parallax" y={[-200, -400]} x={[-10, 70]} tagOuter="figure">
         <Shape right />
       </Parallax>
     </div>
