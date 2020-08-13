@@ -1,43 +1,77 @@
 .Main {
   $root: &;
-  margin-top: 15rem;
+  position: relative;
+  margin-top: 12rem;
   overflow: hidden;
 
-  &_header {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    top: 0;
-    background-color: map-get($colors, "dark-green");
-    color: white;
-    z-index: 99999;
-
-    & > h1 {
-      font-size: 3rem;
-      margin-bottom: 5px;
+  &-collapse {
+    #{$root}_container {
+      max-height: 0;
+      transition: all 0.2s ease-in-out;
     }
 
-    & > p {
-      color: rgb(182, 182, 182);
-      font-style: italic;
-      margin-top: 0;
+    #{$root}_docTitle {
+      &:after {
+        transform: translateY(-50%) rotate(135deg);
+      }
     }
   }
 
-  &_title {
-    margin-top: 2rem;
-    transition: margin-top 0.2s ease-in;
+  &_section {
+    position: relative;
+    padding-top: 5rem;
+  }
 
-    &-small {
-      margin-top: 0;
+  &_sectionTitle {
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: map-get($colors, "dark-green");
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten(map-get($colors, "dark-green"), 25%);
     }
+  }
+
+  &_docTitle {
+    position: relative;
+    color: map-get($colors, "white");
+    font-weight: normal;
+    font-size: 1.5rem;
+    text-align: center;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 50%;
+      margin-left: 1rem;
+      border-left: 1px solid white;
+      border-bottom: 1px solid white;
+      transform: translateY(-50%) rotate(-45deg);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &_container {
+    // height: 100%;
+    max-height: 100%;
+    transition: all 0.2s ease-in-out;
   }
 
   &_group {
     margin-bottom: 10rem;
+  }
+
+  &_groupHeader {
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
   }
 
   &_groupDets {
@@ -124,22 +158,37 @@
     margin: 0;
   }
 
-  &_subtitle {
-    font-size: 1rem;
-    transition: font-size 0.2s ease-in;
-
-    &-small {
-      font-size: 0px;
-    }
-  }
-
   &_circle {
     &-big {
-      margin-bottom: 15rem !important;
+      margin-bottom: 17rem !important;
     }
   }
 
   &_parallax {
     position: absolute;
+  }
+
+  &_companiesSection {
+    margin-top: 5rem;
+  }
+
+  &_companiesContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &_companiesBtn {
+    padding: 2rem 1rem;
+    background-color: map-get($colors, "dark-blue");
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten(map-get($colors, "dark-blue"), 25%);
+    }
   }
 }

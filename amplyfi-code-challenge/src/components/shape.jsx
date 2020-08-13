@@ -35,7 +35,6 @@ const Shape = ({
   return (
     <div className="Shape">
       <div className={classes}>
-        {console.log(transformStyles)}
         <div className="Shape_shape"></div>
       </div>
     </div>

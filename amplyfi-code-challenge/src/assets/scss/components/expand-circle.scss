@@ -26,11 +26,11 @@
       }
 
       #{$root}_listItem {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 4rem;
+        height: 4rem;
         left: var(--posX);
         top: var(--posY);
-        transform: translate(75%, 75%);
+        transform: translate(50%, 50%);
         transition: all 0.4s ease-in;
       }
     }

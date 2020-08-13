@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Parallax } from 'react-scroll-parallax';
-
-import data from '../data/JSON/232.json';
-import data2 from '../data/JSON/545.json'
+import PropTypes from 'prop-types';
 
 import Section from './Section';
 import ExpandCircle from './ExpandCircle';
@@ -10,53 +8,47 @@ import Companies from './companies';
 import Shape from './shape';
 
 
-const Main = () => {
-  const [showCompanies, setShowCompanies] = useState(false);
+const propTypes = {
+  data: PropTypes.objectOf(PropTypes.object),
+}
 
-  const setHeader = _event => {
-    const [header] = document.getElementsByClassName('Main_header');
-    const [mainSection] = document.getElementsByClassName('Main_section');
-    const [title] = document.getElementsByClassName('Main_title');
-    const [subTitle] = document.getElementsByClassName('Main_subtitle');
-    if (mainSection.getBoundingClientRect().top <= (header.clientHeight + 10)) {
-      subTitle.classList.add('Main_subtitle-small');
-      title.classList.add('Main_title-small')
-    } else if (subTitle.classList.contains('Main_subtitle-small')) {
-      subTitle.classList.remove('Main_subtitle-small');
-      title.classList.remove('Main_title-small')
-    }
-  };
+const Main = ({
+  data
+}) => {
+  const [showCompanies, setShowCompanies] = useState(false);
+  const [showDoc, setShowDoc] = useState(true);
+  const section = useRef();
 
   const viewCompanies = () => {
     setShowCompanies(!showCompanies);
   }
 
-  useEffect(() => {
-    setTimeout(() => {
-
-      window.addEventListener('scroll', setHeader);
-    }, 0)
-  }, []);
+  const collapse = (e) => {
+    e.currentTarget.parentElement.classList.toggle('Main-collapse');
+  }
 
   return (
-    <div className="Main" path="">
-      <div className="Main_container">
-        <div className="Main_header">
-          <h1 className="Main_title">
-            AMPLYFI
-          </h1>
-          <p className="Main_subtitle">
-            Code Challenge
-          </p>
-        </div>
+    <div className="Main">
+      <div className="Main_sectionTitle" onClick={(e) => collapse(e)}>
+        <h1 className="Main_docTitle">
+          {data.m_szDocTitle}
+        </h1>
+      </div>
+      <div className="Main_container" ref={section}>
         <Parallax className="Main_parallax" y={[-200, 200]} x={[1000, 500]} tagOuter="figure">
-          <Shape left small />
+          <Shape left />
         </Parallax>
         <Section blockName="Main_section">
           <div className="Main_group">
-            <div className="Main_groupDets">
-              Document ID:
-            {data.m_szDocID}
+            <div className="Main_groupHeader">
+              <div className="Main_groupDets">
+                Document ID:
+              {data.m_szDocID}
+              </div>
+              <div className="Main_year">
+                Document Year:
+              {data.m_szYear}
+              </div>
             </div>
             <ul className="Main_groupDets">
               <li className="Main_groupItem">
@@ -95,22 +87,25 @@ const Main = () => {
               </a>
           </div>
           <ExpandCircle
-            list={data.m_Places}
-            name="Places"
+            list={data.m_People}
+            name="People"
             blockName="Main_circle Main_circle-big"
           />
           <ExpandCircle
-            list={data2.m_Places}
+            list={data.m_Places}
             name="Places"
           />
         </Section>
-
-        {/* <button onClick={viewCompanies}>
-          {showCompanies ? 'Hide Companies' : 'View Companies'}
-        </button> */}
-        {showCompanies &&
-          <Companies />
-        }
+        <Section blockName="Main_companiesSection">
+          <div className="Main_companiesContainer">
+            <button className="Main_companiesBtn" onClick={viewCompanies}>
+              {showCompanies ? 'Hide Companies' : 'View Companies'}
+            </button>
+          </div>
+          {showCompanies &&
+            <Companies data={data.m_Companies} />
+          }
+        </Section>
       </div>
       <Parallax className="Main_parallax" y={[-200, 20]} x={[-10, 70]} tagOuter="figure">
         <Shape right />

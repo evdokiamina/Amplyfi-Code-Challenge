@@ -24,7 +24,7 @@ const ExpandCircle = ({
     const listLength = Object.values(listData).length;
 
     if (listData) {
-      const radius = listLength <= 10 ? 130 : 160;
+      const radius = listLength <= 10 ? 130 : 180;
       Object.values(listData).forEach((item, index) => {
         const randomAngle = (index * (Math.PI * 2 / listLength));
         const randomX = Math.cos(randomAngle) * radius;

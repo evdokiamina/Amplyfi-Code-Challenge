@@ -1,0 +1,43 @@
+.Header {
+  &_header {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    top: 0;
+    background-color: map-get($colors, "dark-green");
+    color: white;
+    z-index: 99999;
+
+    & > h1 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+
+    & > p {
+      color: rgb(182, 182, 182);
+      font-style: italic;
+      margin-top: 0;
+    }
+  }
+
+  &_subtitle {
+    font-size: 1rem;
+    transition: font-size 0.2s ease-in;
+
+    &-small {
+      font-size: 0px;
+    }
+  }
+
+  &_title {
+    margin-top: 2rem;
+    transition: margin-top 0.2s ease-in;
+
+    &-small {
+      margin-top: 0;
+    }
+  }
+}
