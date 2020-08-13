@@ -114,4 +114,6 @@ const Main = ({
   );
 }
 
+Main.propTypes = propTypes;
+
 export default Main;
